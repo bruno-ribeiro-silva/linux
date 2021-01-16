@@ -33,12 +33,11 @@ git clone https://github.com/corecoding/Vitals.git ~/.local/share/gnome-shell/ex
 # https://extensions.gnome.org/extension/1319/gsconnect/
 # after: press Alt + F2 and enter r in the box
 
-# themes
-# sudo apt install materia-gtk-theme
-# sudo apt-get install gtk2-engines-murrine gtk2-engines-pixbuf &&
-git clone https://github.com/vinceliuice/Matcha-gtk-theme.git &&
-cd Matcha-gtk-theme &&
-./install.sh
+# dash-to-dock
+git clone https://github.com/micheleg/dash-to-dock.git &&
+cd dash-to-dock &&
+make &&
+make install
 
 # icons
 sudo add-apt-repository -u ppa:snwh/ppa &&
@@ -50,12 +49,6 @@ sudo apt-get install -y ubuntu-wallpapers*
 # gparted
 sudo apt install -y gparted
 
-# screenfetch
-sudo apt install -y screenfetch
-
-# speedtest
-sudo apt install -y speedtest-cli
-
 # htop
 sudo apt install -y htop
 
@@ -64,9 +57,6 @@ sudo apt install -y inkscape
 
 # audacity
 sudo apt install -y audacity
-
-# flameshot
-sudo apt install -y flameshot
 
 # epub reader
 sudo apt install -y fbreader
@@ -108,14 +98,6 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE &
 echo -e "\ndeb https://typora.io/linux ./" | sudo tee -a /etc/apt/sources.list &&
 sudo apt update &&
 sudo apt install -y typora
-
-# anydesk
-sudo su -
-wget -c -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add - &&
-echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list &&
-apt update &&
-apt install anydesk -y &&
-exit
 
 # sublime
 wget -c -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - &&
@@ -212,33 +194,15 @@ flatpak install -y flathub org.telegram.desktop
 # discord
 flatpak install -y flathub com.discordapp.Discord
 
-# skype
-flatpak install -y flathub com.skype.Client
-
-# fondo
-flatpak install -y flathub com.github.calo001.fondo
-
 # bookworm
 flatpak install -y flathub com.github.babluboy.bookworm
 
 # vlc
 flatpak install -y flathub org.videolan.VLC
 
-# gydl
-flatpak install -y flathub com.github.JannikHv.Gydl
-
 ## snaps --------------------------------------------------------------------------------------
 # install
 sudo apt install -y snapd
-
-# whatsdesk
-sudo snap install whatsdesk
-
-# simplenote
-sudo snap install simplenote
-
-# kcolorchooser
-sudo snap install kcolorchooser
 
 ## dpkgs --------------------------------------------------------------------------------------
 # rstudio
@@ -319,24 +283,11 @@ sudo apt autoclean -y &&
 sudo apt autoremove -y
 
 # extras ------------------------------------------------------------------
-# chromium
-# sudo apt install -y chromium-browser &&
 
 # tile windows - popos
 # git clone https://github.com/pop-os/shell &&
 # d shell/ &&
 #./rebuild.sh
-
-# dash-to-dock
-# git clone https://github.com/micheleg/dash-to-dock.git &&
-# cd dash-to-dock &&
-# make &&
-# make install
-
-# thema
-# sudo add-apt-repository ppa:daniruiz/flat-remix &&
-# sudo apt update &&
-# sudo apt install -y flat-remix-gnome
 
 # tikzit
 # sudo apt install -y tikzit
