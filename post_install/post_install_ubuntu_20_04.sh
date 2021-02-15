@@ -2,16 +2,16 @@
 
 # ubuntu 20.04 (focal)
 
-# upgrade 
+# upgrade
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove
 
 # nvidia
-sudo apt-add-repository ppa:graphics-drivers/ppa && 
+sudo apt-add-repository ppa:graphics-drivers/ppa &&
 sudo apt update &&
 sudo ubuntu-drivers autoinstall
 
 # git
-sudo add-apt-repository ppa:git-core/ppa && 
+sudo add-apt-repository ppa:git-core/ppa &&
 sudo apt update &&
 sudo apt install -y git
 
@@ -80,7 +80,7 @@ sudo apt install -y ubuntu-restricted-extras ttf-mscorefonts-installer
 # obs studio
 sudo apt-get install -y ffmpeg &&
 sudo add-apt-repository ppa:obsproject/obs-studio &&
-sudo apt-get update && 
+sudo apt-get update &&
 sudo apt-get install -y obs-studio
 
 # peek
@@ -118,31 +118,31 @@ sudo apt update &&
 sudo apt install -y r-base r-base-core r-recommended r-base-dev # r
 
 sudo apt install -y gdal-bin &&
-sudo apt install -y libgdal-dev && 
-sudo apt install -y libproj-dev && 
-sudo apt install -y libssl-dev && 
+sudo apt install -y libgdal-dev &&
+sudo apt install -y libproj-dev &&
+sudo apt install -y libssl-dev &&
 sudo apt install -y libavfilter-dev &&
-sudo apt install -y xml2 && 
-sudo apt install -y libxml2-dev && 
-sudo apt install -y libgeos-dev && 
-sudo apt install -y libudunits2-dev && 
-sudo apt install -y gfortran-7 && 
-sudo apt install -y gcc-7 g++-7 && 
-sudo apt install -y libxml2-dev && 
-sudo apt install -y libssl-dev && 
-sudo apt install -y libcurl4-openssl-dev && 
-sudo apt install -y libv8-dev && 
-sudo apt install -y libprotobuf-dev && 
-sudo apt install -y libjq-dev && 
-sudo apt install -y protobuf-compiler && 
-sudo apt install -y libgmp3-dev && 
-sudo apt install -y libgtk2.0-dev && 
-sudo apt install -y xvfb && 
-sudo apt install -y xauth && 
-sudo apt install -y xfonts-base && 
-sudo apt install -y libxt-dev && 
-sudo apt install -y libgsl-dev && 
-sudo apt install -y libmagick++-dev && 
+sudo apt install -y xml2 &&
+sudo apt install -y libxml2-dev &&
+sudo apt install -y libgeos-dev &&
+sudo apt install -y libudunits2-dev &&
+sudo apt install -y gfortran-7 &&
+sudo apt install -y gcc-7 g++-7 &&
+sudo apt install -y libxml2-dev &&
+sudo apt install -y libssl-dev &&
+sudo apt install -y libcurl4-openssl-dev &&
+sudo apt install -y libv8-dev &&
+sudo apt install -y libprotobuf-dev &&
+sudo apt install -y libjq-dev &&
+sudo apt install -y protobuf-compiler &&
+sudo apt install -y libgmp3-dev &&
+sudo apt install -y libgtk2.0-dev &&
+sudo apt install -y xvfb &&
+sudo apt install -y xauth &&
+sudo apt install -y xfonts-base &&
+sudo apt install -y libxt-dev &&
+sudo apt install -y libgsl-dev &&
+sudo apt install -y libmagick++-dev &&
 sudo R CMD javareconf
 
 # qgis
@@ -208,14 +208,14 @@ sudo apt install -y snapd
 # rstudio
 wget -c https://s3.amazonaws.com/rstudio-ide-build/desktop/bionic/amd64/rstudio-1.4.1087-amd64.deb &&
 sudo dpkg -i rstudio-1.4.1087-amd64.deb
-sudo apt install -fy && 
+sudo apt install -fy &&
 rm rstudio-1.4.1087-amd64.deb
 
 # libreoffice
 wget https://download.documentfoundation.org/libreoffice/stable/6.4.7/deb/x86_64/LibreOffice_6.4.7_Linux_x86-64_deb.tar.gz
 tar -xvf LibreOffice_6.4.7_Linux_x86-64_deb.tar.gz
 cd LibreOffice_6.4.7.2_Linux_x86-64_deb/DEBS
-sudo dpkg -i *.deb 
+sudo dpkg -i *.deb
 cd ..; cd ..
 rm -r LibreOffice_6.4.7.2_Linux_x86-64_deb
 rm LibreOffice_6.4.7_Linux_x86-64_deb.tar.gz
@@ -223,7 +223,7 @@ rm LibreOffice_6.4.7_Linux_x86-64_deb.tar.gz
 wget http://download.documentfoundation.org/libreoffice/stable/6.4.7/deb/x86_64/LibreOffice_6.4.7_Linux_x86-64_deb_langpack_pt-BR.tar.gz
 tar -xvf LibreOffice_6.4.7_Linux_x86-64_deb_langpack_pt-BR.tar.gz
 cd LibreOffice_6.4.7.2_Linux_x86-64_deb_langpack_pt-BR/DEBS
-sudo dpkg -i *.deb 
+sudo dpkg -i *.deb
 cd ..; cd ..
 rm -r LibreOffice_6.4.7.2_Linux_x86-64_deb_langpack_pt-BR
 rm LibreOffice_6.4.7_Linux_x86-64_deb_langpack_pt-BR.tar.gz
@@ -271,11 +271,13 @@ wget https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb &&
 sudo dpkg -i GBPCEFwr64.deb &&
 rm GBPCEFwr64.deb
 
+# atom
+wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+sudo apt-get update
+sudo apt-get install atom
+
 ## fix broken
-sudo apt clean && sudo apt update &&
-sudo dpkg --configure -a &&
-sudo apt install -f &&
-sudo apt install -y --fix-broken 
 
 ## cleanup apt
 sudo apt update &&
