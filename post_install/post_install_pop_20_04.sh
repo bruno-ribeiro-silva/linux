@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ubuntu 20.04 (focal)
+# pop!_OS 20.04 (focal)
 
 # upgrade
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove
@@ -9,6 +9,8 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove
 sudo apt-add-repository ppa:graphics-drivers/ppa &&
 sudo apt update &&
 sudo ubuntu-drivers autoinstall
+
+sudo apt install -y nvidia-prime
 
 # git
 sudo add-apt-repository ppa:git-core/ppa &&
@@ -83,28 +85,6 @@ sudo add-apt-repository ppa:obsproject/obs-studio &&
 sudo apt-get update &&
 sudo apt-get install -y obs-studio
 
-# peek
-sudo add-apt-repository ppa:peek-developers/stable &&
-sudo apt update &&
-sudo apt install -y peek
-
-# typora
-wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
-sudo add-apt-repository 'deb https://typora.io/linux ./'
-sudo apt update
-sudo apt install typora
-
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE &&
-echo -e "\ndeb https://typora.io/linux ./" | sudo tee -a /etc/apt/sources.list &&
-sudo apt update &&
-sudo apt install -y typora
-
-# sublime
-wget -c -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - &&
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list &&
-sudo apt update &&
-sudo apt install -y sublime-text
-
 # java
 sudo apt install -y default-jre default-jdk
 
@@ -157,29 +137,7 @@ sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable &&
 sudo apt update &&
 sudo apt install -y grass
 
-# wine
-sudo dpkg --add-architecture i386 &&
-wget -nc https://dl.winehq.org/wine-builds/winehq.key &&
-sudo apt-key add winehq.key &&
-sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' &&
-sudo apt update &&
-sudo apt install -y --install-recommends winehq-stable
-winecfg
-
-# steam
-sudo apt install -y steam
-
 ## flatpak ------------------------------------------------------------------------------------
-# flatpak
-sudo apt install -y flatpak &&
-sudo apt install -y gnome-software-plugin-flatpak &&
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-# spotify
-flatpak install -y flathub com.spotify.Client
-
-# slack
-flatpak install -y flathub com.slack.Slack
 
 # gimp
 flatpak install -y flathub org.gimp.GIMP
@@ -194,15 +152,8 @@ flatpak install -y flathub org.telegram.desktop
 # discord
 flatpak install -y flathub com.discordapp.Discord
 
-# bookworm
-flatpak install -y flathub com.github.babluboy.bookworm
-
 # vlc
 flatpak install -y flathub org.videolan.VLC
-
-## snaps --------------------------------------------------------------------------------------
-# install
-sudo apt install -y snapd
 
 ## dpkgs --------------------------------------------------------------------------------------
 # rstudio
@@ -260,12 +211,6 @@ wget -c https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/nautilus-megasync-xUb
 sudo dpkg -i nautilus-megasync-xUbuntu_20.04_amd64.deb &&
 rm nautilus-megasync-xUbuntu_20.04_amd64.deb
 
-# dropbox
-wget -c --output-document=dropbox_2020.03.04_amd64.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
-sudo dpkg -i dropbox_2020.03.04_amd64.deb
-sudo apt install -fy
-rm dropbox_2020.03.04_amd64.deb
-
 # warsal - modulo seguranca bb
 wget https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb &&
 sudo dpkg -i GBPCEFwr64.deb &&
@@ -286,16 +231,7 @@ sudo apt autoremove -y
 
 # extras ------------------------------------------------------------------
 
-# tile windows - popos
-# git clone https://github.com/pop-os/shell &&
-# d shell/ &&
-#./rebuild.sh
-
 # tikzit
 # sudo apt install -y tikzit
-
-# lutris
-# sudo add-apt-repository ppa:lutris-team/lutris
-# sudo apt install -y lutris
 
 # end ----------------------------------------------------------------------
