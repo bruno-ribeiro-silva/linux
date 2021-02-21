@@ -97,6 +97,7 @@ sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu focal-
 sudo apt update &&
 sudo apt install -y r-base r-base-core r-recommended r-base-dev # r
 
+#r package dependences 
 sudo apt install -y gdal-bin &&
 sudo apt install -y libgdal-dev &&
 sudo apt install -y libproj-dev &&
